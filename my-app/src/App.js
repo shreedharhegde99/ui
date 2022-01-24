@@ -1,11 +1,10 @@
 import React from "react";
-import Search from "./Components/Search";
+import HomePage from "./Components/Home";
 
 function App() {
   return (
     <>
-      <div>Hello World</div>
-      <Search/>
+      <HomePage />
     </>
   );
 }
