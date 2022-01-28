@@ -7,27 +7,29 @@ import {
   BodyContainer,
   Box,
   ButtonContainer,
-  Content_One,
-  Content_One_Image,
+  ContentOne,
+  ContentOneImage,
   Heading,
-  Heading_One,
+  HeadingOne,
   MenuBar,
-  Image_Style,
+  ImageStyle,
   NavLink,
-  Text_Content,
-  Text_Content_One,
+  TextContent,
+  TextContentOne,
   TopBar,
   TopLogo,
   StyledButton,
   FooterContainer,
   FooterLinkContainer,
   ResponsiveBox,
-  ResponsiveBox_Column,
+  ResponsiveBoxColumn,
   Container,
   TopNav,
   TopLinks,
   TopDiv,
+  ImageContainer,
 } from "./Styled";
+import Menu from "./MenuBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight, } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter,faFacebook,faInstagram,faLinkedin,faTelegram, } from "@fortawesome/free-brands-svg-icons";
@@ -43,50 +45,51 @@ function HomePage() {
     <>
       <BodyContainer>
         <TopBar>
-            <div>
-              <TopLogo
-                src="	https://zerodha.com/static/images/logo.svg"
-                alt="Zerodha Logo"
-              />
-            </div>
+          <div>
+            <TopLogo
+              src="	https://zerodha.com/static/images/logo.svg"
+              alt="Zerodha Logo"
+            />
+          </div>
           <TopNav>
             <TopDiv></TopDiv>
-            
-                  <TopLinks>
-                    <div>Signup </div>
-                    <div>About</div>
-                    <div> Products </div>
-                    <div>Pricing </div>
-                    <div>Support</div>
-                  </TopLinks>
 
-                  <MenuBar onClick={() => setOpen(!open)}>
-                    {!open ? <CgMenu size={25} /> : <CgClose size={25} />}
-                  </MenuBar>
-            </TopNav>
+            <TopLinks>
+              <div>Signup </div>
+              <div>About</div>
+              <div> Products </div>
+              <div>Pricing </div>
+              <div>Support</div>
+            </TopLinks>
+
+            <MenuBar onClick={() => setOpen(!open)}>
+              {!open ? <CgMenu size={25} /> : <CgClose size={25} />}
+            </MenuBar>
+          </TopNav>
         </TopBar>
+        {open && <Menu />}
         {/* Content Area No 1 broker */}
-        <Content_One>
-          <div>
-            <Content_One_Image
+        <ContentOne>
+          <ImageContainer>
+            <ContentOneImage
               src="	https://zerodha.com/static/images/landing.png"
               alt="No.1 Broker in India"
             />
-          </div>
+          </ImageContainer>
 
           <Heading>Invest in everything</Heading>
-          <Text_Content>
+          <TextContent>
             online platform to invest in stocks, derivatives, mutual funds, and
             more
-          </Text_Content>
+          </TextContent>
 
           <Button />
-        </Content_One>
+        </ContentOne>
 
         {/* Largest stock broker */}
         <ResponsiveBox>
           <div>
-            <Image_Style
+            <ImageStyle
               primary
               src="	https://zerodha.com/static/images/largest-broker.svg"
               alt="Largest broker"
@@ -95,12 +98,12 @@ function HomePage() {
 
           <div>
             <div>
-              <Heading_One>Largest stock broker in India</Heading_One>
+              <HeadingOne>Largest stock broker in India</HeadingOne>
             </div>
-            <Text_Content_One>
+            <TextContentOne>
               8+ million Zerodhants contribute to over 15% of all retail order
               volumes in India daily by trading and investing in:
-            </Text_Content_One>
+            </TextContentOne>
             <div>
               <div>
                 <ul style={ListStyle}>
@@ -119,7 +122,7 @@ function HomePage() {
             </div>
 
             <div>
-              <Image_Style
+              <ImageStyle
                 src="	https://zerodha.com/static/images/press-logos.png"
                 alt="Press-logos"
               />
@@ -131,12 +134,12 @@ function HomePage() {
           <div>
             <Heading>The Zerodha Universe</Heading>
           </div>
-          <Text_Content_One>
+          <TextContentOne>
             A whole ecosystem of modern investment apps tailored to specific
             needs, built from the ground up
-          </Text_Content_One>
+          </TextContentOne>
           <Container>
-            <Image_Style
+            <ImageStyle
               src="https://zerodha.com/static/images/ecosystem.png"
               alt="Zerodha eco-system"
             />
@@ -152,10 +155,10 @@ function HomePage() {
             <div>
               <Heading>Unbeatable pricing</Heading>
             </div>
-            <Text_Content_One margin left>
+            <TextContentOne margin left>
               We pioneered the concept of discount broking and price
               transparency in India. Flat fees and no hidden charges.
-            </Text_Content_One>
+            </TextContentOne>
             <NavLink>
               See pricing
               <FontAwesomeIcon icon={faLongArrowAltRight} />
@@ -175,31 +178,31 @@ function HomePage() {
 
         <ResponsiveBox>
           <Container>
-            <Image_Style
+            <ImageStyle
               src="	https://zerodha.com/static/images/index-education.svg"
               alt="varsity"
             />
           </Container>
           <div>
-            <ResponsiveBox_Column>
+            <ResponsiveBoxColumn>
               <Heading>Free and open market education</Heading>
-              <Text_Content_One margin left>
+              <TextContentOne margin left>
                 Varsity, the largest online stock market education book in the
                 world covering everything from the basics to advanced trading.
-              </Text_Content_One>
+              </TextContentOne>
               <NavLink>
                 Varsity
                 <FontAwesomeIcon icon={faLongArrowAltRight} />
               </NavLink>
-              <Text_Content_One margin left>
+              <TextContentOne margin left>
                 TradingQ&A, the most active trading and investment community in
                 India for all your market related queries.
-              </Text_Content_One>
+              </TextContentOne>
               <NavLink>
                 TradingQ&A
                 <FontAwesomeIcon icon={faLongArrowAltRight} />
               </NavLink>
-            </ResponsiveBox_Column>
+            </ResponsiveBoxColumn>
           </div>
         </ResponsiveBox>
         {/* Open Account */}
@@ -207,10 +210,10 @@ function HomePage() {
           <div>
             <Heading> Open a Zerodha account</Heading>
           </div>
-          <Text_Content_One>
+          <TextContentOne>
             Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and
             F&O trades.
-          </Text_Content_One>
+          </TextContentOne>
           <ButtonContainer>
             <StyledButton top="2rem">Sign up now</StyledButton>
           </ButtonContainer>
@@ -228,13 +231,13 @@ function HomePage() {
               />
             </div>
             <div>
-              <Text_Content_One Size="0.8rem" left>
+              <TextContentOne Size="0.8rem" left>
                 © 2010 - 2022, Zerodha Broking Ltd.
-              </Text_Content_One>
-              <Text_Content_One Size="0.8rem" left>
+              </TextContentOne>
+              <TextContentOne Size="0.8rem" left>
                 {" "}
                 All rights reserved.
-              </Text_Content_One>
+              </TextContentOne>
               <div>
                 <FontAwesomeIcon icon={faTwitter} border />
                 <FontAwesomeIcon icon={faFacebook} border />
@@ -280,7 +283,7 @@ function HomePage() {
           </div>
         </ResponsiveBox>
         <div>
-          <Text_Content_One margin Size="0.7rem" left noHeight>
+          <TextContentOne margin Size="0.7rem" left noHeight>
             Zerodha Broking Ltd.: Member of NSE​ &​ BSE – SEBI Registration no.:
             INZ000031633 CDSL: Depository services through Zerodha Broking Ltd.
             – SEBI Registration no.: IN-DP-431-2019 Commodity Trading through
@@ -292,18 +295,18 @@ function HomePage() {
             complaints@zerodha.com, for DP related to dp@zerodha.com. Please
             ensure you carefully read the Risk Disclosure Document as prescribed
             by SEBI | ICF
-          </Text_Content_One>
-          <Text_Content_One margin Size="0.7rem" left noHeight>
+          </TextContentOne>
+          <TextContentOne margin Size="0.7rem" left noHeight>
             Procedure to file a complaint on SEBI SCORES: Register on SCORES
             portal. Mandatory details for filing complaints on SCORES: Name,
             PAN, Address, Mobile Number, E-mail ID. Benefits: Effective
             Communication, Speedy redressal of the grievances
-          </Text_Content_One>
-          <Text_Content_One margin Size="0.7rem" left noHeight>
+          </TextContentOne>
+          <TextContentOne margin Size="0.7rem" left noHeight>
             Investments in securities market are subject to market risks; read
             all the related documents carefully before investing.
-          </Text_Content_One>
-          <Text_Content_One margin Size="0.7rem" left noHeight>
+          </TextContentOne>
+          <TextContentOne margin Size="0.7rem" left noHeight>
             Attention investors: 1) Stock brokers can accept securities as
             margins from clients only by way of pledge in the depository system
             w.e.f September 01, 2020. 2) Update your e-mail and phone number
@@ -311,9 +314,9 @@ function HomePage() {
             directly from depository on your e-mail and/or mobile number to
             create pledge. 3) Check your securities / MF / bonds in the
             consolidated account statement issued by NSDL/CDSL every month.
-          </Text_Content_One>
+          </TextContentOne>
 
-          <Text_Content_One margin Size="0.7rem" left noHeight>
+          <TextContentOne margin Size="0.7rem" left noHeight>
             "Prevent unauthorised transactions in your account. Update your
             mobile numbers/email IDs with your stock brokers. Receive
             information of your transactions directly from Exchange on your
@@ -330,34 +333,34 @@ function HomePage() {
             authorized anyone to trade on behalf of others. If you find anyone
             claiming to be part of Zerodha and offering such services, please
             create a ticket here.
-          </Text_Content_One>
+          </TextContentOne>
         </div>
         <div>
           <FooterLinkContainer>
-            <Text_Content_One Size="0.7rem" normal>
+            <TextContentOne Size="0.7rem" normal>
               NSE
-            </Text_Content_One>
-            <Text_Content_One Size="0.7rem" normal>
+            </TextContentOne>
+            <TextContentOne Size="0.7rem" normal>
               BSE
-            </Text_Content_One>
-            <Text_Content_One Size="0.7rem" normal>
+            </TextContentOne>
+            <TextContentOne Size="0.7rem" normal>
               MCX
-            </Text_Content_One>
-            <Text_Content_One Size="0.7rem" normal>
+            </TextContentOne>
+            <TextContentOne Size="0.7rem" normal>
               Terms & conditions
-            </Text_Content_One>
-            <Text_Content_One Size="0.7rem" normal>
+            </TextContentOne>
+            <TextContentOne Size="0.7rem" normal>
               Policies & procedures
-            </Text_Content_One>
-            <Text_Content_One Size="0.7rem" normal>
+            </TextContentOne>
+            <TextContentOne Size="0.7rem" normal>
               Privacy policy{" "}
-            </Text_Content_One>
-            <Text_Content_One Size="0.7rem" normal>
+            </TextContentOne>
+            <TextContentOne Size="0.7rem" normal>
               Disclosure
-            </Text_Content_One>
-            <Text_Content_One Size="0.7rem" normal>
+            </TextContentOne>
+            <TextContentOne Size="0.7rem" normal>
               For investor's attention
-            </Text_Content_One>
+            </TextContentOne>
           </FooterLinkContainer>
         </div>
       </FooterContainer>

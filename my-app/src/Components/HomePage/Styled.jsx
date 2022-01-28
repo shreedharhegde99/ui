@@ -54,15 +54,17 @@ const TopDiv = styled.div`
 const MenuBar = styled.div`
 cursor:pointer;
 padding-top:0.95rem;
+position:relative;
+z-index:2;
 `
 
-const Content_One = styled.div`
+const ContentOne = styled.div`
 text-align:center;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
 `
-const Content_One_Image = styled.img`
+const ContentOneImage = styled.img`
   margin-top: 1rem;
   margin-bottom: 1rem;
   // height: 20%;
@@ -75,7 +77,7 @@ const Content_One_Image = styled.img`
 
 
 
-const Image_Style = styled.img`
+const ImageStyle = styled.img`
   margin-top: 1rem;
   margin-bottom: 1rem;
   // height: 20%;
@@ -100,7 +102,7 @@ const Heading = styled.div`
   
 `;
 
-const Heading_One = styled(Heading)`
+const HeadingOne = styled(Heading)`
 font-size:2rem;
 text-align:left;
 margin-left:0;
@@ -110,7 +112,7 @@ padding:0;
 
 
 
-const Text_Content = styled.div`
+const TextContent = styled.div`
 // margin-bottom:1rem;
 font-size:1.5rem;
 color:#424242;
@@ -118,7 +120,7 @@ text-align:center;
 margin:${props=>props.margin?"2rem 0":0}
 
 `
-const Text_Content_One = styled(Text_Content)`
+const TextContentOne = styled(TextContent)`
   font-size: ${props=>props.Size||"1rem"};
   line-height:${props=>props.noHeight?"normal":"1.5rem"};
   word-spacing:${props=>props.normal?"normal":"0.4rem"} ;
@@ -195,7 +197,7 @@ const ResponsiveBox = styled.div`
 
 }
 `
-const ResponsiveBox_Column = styled(ResponsiveBox)`
+const ResponsiveBoxColumn = styled(ResponsiveBox)`
 flex-direction:column;
 flex-wrap:wrap;
 
@@ -207,19 +209,22 @@ const Container = styled(ButtonContainer)`
   }
 `;
   
+const ImageContainer = styled.section`
+ padding:0 20px 120px 20px;
+`;
 
 
 export {
   TopLogo,
   BodyContainer,
   TopBar,
-  Content_One,
-  Content_One_Image,
+  ContentOne,
+  ContentOneImage,
   MenuBar,
   Heading,
-  Text_Content,
-  Heading_One,
-  Text_Content_One,
+  TextContent,
+  HeadingOne,
+  TextContentOne,
   NavLink,
   Box,
   StyledButton,
@@ -227,10 +232,11 @@ export {
   FooterContainer,
   FooterLinkContainer,
   ResponsiveBox,
-  ResponsiveBox_Column,
-  Image_Style,
+  ResponsiveBoxColumn,
+  ImageStyle,
   Container,
   TopNav,
   TopLinks,
   TopDiv,
+  ImageContainer,
 };
