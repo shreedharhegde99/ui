@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
-padding: 0rem 2.5rem;
+  padding: 0rem 2.5rem;
+ 
 `;
 
 const TopBar = styled.div`
@@ -30,7 +31,10 @@ const TopNav = styled.div`
   flex-basis: 60%;
   justify-content: flex-end;
   align-content: center;
-  padding-right:2rem;
+  @media(min-width:960px){
+    padding-right:2rem;
+  }
+
 `;
 const TopLinks = styled(TopNav)`
   flex-basis: 1;
@@ -43,6 +47,8 @@ const TopLinks = styled(TopNav)`
     align-content: center;
     justify-content:space-around;
   }
+
+
 `;
 
 const TopDiv = styled.div`
@@ -54,7 +60,7 @@ const TopDiv = styled.div`
 
 const MenuBar = styled.div`
 cursor:pointer;
-padding-top:0.95rem;
+padding-top:1rem;
 position:relative;
 z-index:2;
 `
@@ -72,7 +78,7 @@ const ContentOneImage = styled.img`
   width: 90%;
   @media(min-width:550px){
     align-self:center;
-     width:30%;
+     width:40%;
   }
 `; 
 
@@ -124,22 +130,30 @@ margin:${props=>props.margin?"2rem 0":0}
 
 `
 const TextContentOne = styled(TextContent)`
-  font-size: ${props=>props.Size||"1rem"};
-  line-height:${props=>props.noHeight?"normal":"1.5rem"};
-  word-spacing:${props=>props.normal?"normal":"0.4rem"} ;
+   
+  font-size: ${(props) => props.Size || "1rem"};
+  line-height: ${(props) => (props.noHeight ? "normal" : "1.5rem")};
+  word-spacing: ${(props) => (props.normal ? "normal" : "0.4rem")};
   margin: ${(props) => (props.margin ? "2rem 0" : 0)};
-  text-align:${props => props.left ? "left" : "center"}
+  text-align: ${(props) => (props.left ? "left" : "center")};
+  
+`;
+const LinkText = styled(TextContentOne)`
+  cursor: pointer;
+  &:hover {
+    color: rgba(74, 93, 237, 0.88);
+    // font-weight:500;
+  }
 `;
 
 const NavLink = styled.div`
-
-// width:max-content;
+font-size:1.1rem;
   color: #3f61bf;
   &:hover {
     color: black;
   };
-//  margin-left:${props => props.primary ? "4rem" : 0};
  margin-bottom:2rem;
+ padding-right:0.5rem;
  text-align:${props=>props.center?"center":"left"};
 `;
 const Box = styled.div`
@@ -151,32 +165,32 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  color:#424242;
 `;
 
 const ButtonContainer = styled.div`
 text-align:center;
 margin:2rem;
-justify-content:center;
+// justify-content:center;
 // align-items:center;
 
 
 
 `
 const StyledButton = styled.button`
+  width: max-content;
   font-size: 1.5rem;
   background: #387ed1;
   color: white;
-  padding: 0.5rem;
+  padding: 1rem 2rem;
   border: none;
   border-radius: 5px;
-  align-self: center;
   &:hover {
     background: #222;
     cursor: pointer;
   }
-align-self:center;
-
-  `;
+  align-self: center;
+`;
 
 
 
@@ -248,4 +262,5 @@ export {
   TopDiv,
   ImageContainer,
   FooterMain,
+  LinkText,
 };
