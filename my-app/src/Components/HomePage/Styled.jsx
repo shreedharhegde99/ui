@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
-padding: 0 1rem;
+padding: 0rem 2.5rem;
 `;
 
 const TopBar = styled.div`
@@ -9,13 +9,14 @@ const TopBar = styled.div`
   background: white;
   border-bottom: solid 1px #D4D2D2;
   margin-bottom: 10px;
-  padding: 0.1rem;
+  padding: 0.1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-content: center;
   position: sticky;
   top: 0;
 `;
+
 const TopLogo = styled.img`
 margin-top:1rem;
 margin-left:1rem;
@@ -99,16 +100,18 @@ const Heading = styled.div`
   margin: ${(props) => (props.noMargin ? "0" : "1rem")};
   justify-content: center;
   align-items: center;
+  @media(min-width:800px){
+    font-size:3rem
+  }
   
 `;
 
 const HeadingOne = styled(Heading)`
-font-size:2rem;
-text-align:left;
-margin-left:0;
-padding:0;
-
-`
+  font-size: 2rem;
+  text-align: ${(props) => (props.center ? "center" : "left")};
+  margin-left: 0;
+  padding: 0;
+`;
 
 
 
@@ -176,11 +179,15 @@ align-self:center;
   `;
 
 
-const FooterContainer = styled.div`
-  background: #ebe9e9;
-  padding:1rem;
-`;
 
+
+const FooterMain = styled.div`
+  background: #fafafb;
+  padding: 1rem;
+  @media (min-width: 1100px) {
+    padding: 1rem 3rem;
+  }
+`;
 
 const FooterLinkContainer = styled.div`
   display: flex;
@@ -188,11 +195,13 @@ const FooterLinkContainer = styled.div`
   // justify-items: center;
   flex-wrap: wrap;
   text-align: center;
+  
 `;
 const ResponsiveBox = styled.div`
 @media (min-width:800px){
   display:flex;
-  flex:1;
+  justify-content:space-evenly;
+  // flex:1;
   margin:2rem 0;
 
 }
@@ -229,7 +238,6 @@ export {
   Box,
   StyledButton,
   ButtonContainer,
-  FooterContainer,
   FooterLinkContainer,
   ResponsiveBox,
   ResponsiveBoxColumn,
@@ -239,4 +247,5 @@ export {
   TopLinks,
   TopDiv,
   ImageContainer,
+  FooterMain,
 };

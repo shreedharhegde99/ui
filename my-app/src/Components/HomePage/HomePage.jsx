@@ -28,6 +28,8 @@ import {
   TopLinks,
   TopDiv,
   ImageContainer,
+  FooterMain,
+  
 } from "./Styled";
 import Menu from "./MenuBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,30 +45,30 @@ function HomePage() {
   const [open, setOpen] = useState(false);
   return (
     <>
+      <TopBar>
+        <div>
+          <TopLogo
+            src="	https://zerodha.com/static/images/logo.svg"
+            alt="Zerodha Logo"
+          />
+        </div>
+        <TopNav>
+          <TopDiv></TopDiv>
+
+          <TopLinks>
+            <div>Signup </div>
+            <div>About</div>
+            <div> Products </div>
+            <div>Pricing </div>
+            <div>Support</div>
+          </TopLinks>
+
+          <MenuBar onClick={() => setOpen(!open)}>
+            {!open ? <CgMenu size={25} /> : <CgClose size={25} />}
+          </MenuBar>
+        </TopNav>
+      </TopBar>
       <BodyContainer>
-        <TopBar>
-          <div>
-            <TopLogo
-              src="	https://zerodha.com/static/images/logo.svg"
-              alt="Zerodha Logo"
-            />
-          </div>
-          <TopNav>
-            <TopDiv></TopDiv>
-
-            <TopLinks>
-              <div>Signup </div>
-              <div>About</div>
-              <div> Products </div>
-              <div>Pricing </div>
-              <div>Support</div>
-            </TopLinks>
-
-            <MenuBar onClick={() => setOpen(!open)}>
-              {!open ? <CgMenu size={25} /> : <CgClose size={25} />}
-            </MenuBar>
-          </TopNav>
-        </TopBar>
         {open && <Menu />}
         {/* Content Area No 1 broker */}
         <ContentOne>
@@ -88,13 +90,16 @@ function HomePage() {
 
         {/* Largest stock broker */}
         <ResponsiveBox>
-          <div>
-            <ImageStyle
-              primary
-              src="	https://zerodha.com/static/images/largest-broker.svg"
-              alt="Largest broker"
-            />
-          </div>
+          <Container>
+              <ImageContainer>
+                  <ImageStyle
+                    primary
+                    src="	https://zerodha.com/static/images/largest-broker.svg"
+                    alt="Largest broker"
+                    />
+                </ImageContainer>
+          </Container>
+
 
           <div>
             <div>
@@ -121,18 +126,18 @@ function HomePage() {
               </div>
             </div>
 
-            <div>
+            <ImageContainer>
               <ImageStyle
                 src="	https://zerodha.com/static/images/press-logos.png"
                 alt="Press-logos"
               />
-            </div>
+            </ImageContainer>
           </div>
         </ResponsiveBox>
         {/* The zerodha universe */}
         <div>
           <div>
-            <Heading>The Zerodha Universe</Heading>
+            <HeadingOne center>The Zerodha Universe</HeadingOne>
           </div>
           <TextContentOne>
             A whole ecosystem of modern investment apps tailored to specific
@@ -153,7 +158,7 @@ function HomePage() {
         <ResponsiveBox>
           <Container>
             <div>
-              <Heading>Unbeatable pricing</Heading>
+              <HeadingOne>Unbeatable pricing</HeadingOne>
             </div>
             <TextContentOne margin left>
               We pioneered the concept of discount broking and price
@@ -178,14 +183,16 @@ function HomePage() {
 
         <ResponsiveBox>
           <Container>
-            <ImageStyle
-              src="	https://zerodha.com/static/images/index-education.svg"
-              alt="varsity"
-            />
+            <ImageContainer>
+              <ImageStyle
+                src="	https://zerodha.com/static/images/index-education.svg"
+                alt="varsity"
+              />
+            </ImageContainer>
           </Container>
           <div>
             <ResponsiveBoxColumn>
-              <Heading>Free and open market education</Heading>
+              <HeadingOne>Free and open market education</HeadingOne>
               <TextContentOne margin left>
                 Varsity, the largest online stock market education book in the
                 world covering everything from the basics to advanced trading.
@@ -221,7 +228,8 @@ function HomePage() {
       </BodyContainer>
 
       {/* Company */}
-      <FooterContainer>
+      {/* Footer Area */}
+      <FooterMain>
         <ResponsiveBox>
           <div>
             <div>
@@ -239,11 +247,11 @@ function HomePage() {
                 All rights reserved.
               </TextContentOne>
               <div>
-                <FontAwesomeIcon icon={faTwitter} border />
-                <FontAwesomeIcon icon={faFacebook} border />
-                <FontAwesomeIcon icon={faInstagram} border />
-                <FontAwesomeIcon icon={faLinkedin} border />
-                <FontAwesomeIcon icon={faTelegram} border />
+                <FontAwesomeIcon icon={faTwitter} size="md" border />
+                <FontAwesomeIcon icon={faFacebook} size="md" border />
+                <FontAwesomeIcon icon={faInstagram} size="md" border />
+                <FontAwesomeIcon icon={faLinkedin} size="md" border/>
+                <FontAwesomeIcon icon={faTelegram} size="md" border />
               </div>
             </div>
           </div>
@@ -363,7 +371,7 @@ function HomePage() {
             </TextContentOne>
           </FooterLinkContainer>
         </div>
-      </FooterContainer>
+      </FooterMain>
     </>
   );
 }
