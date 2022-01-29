@@ -47,7 +47,7 @@ function HomePage() {
   const SetMenu = ()=>setOpen(!open)
   return (
     <>
-      <div onClick={SetMenu}>
+      <div onClick={()=>setOpen(false)}>
         <TopBar>
           <div>
             <TopLogo
