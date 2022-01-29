@@ -5,8 +5,7 @@ const StyledButton = styled.button`
   font-size: 1.5rem;
   background: #387ed1;
   color: white;
-  padding: 1rem 2rem;
-  // margin-top:1.5rem
+  padding: 0.5rem 2rem;
   border:none;
   border-radius:5px;
   align-self:center;
@@ -17,7 +16,7 @@ const StyledButton = styled.button`
 `;
 
 const style = {
-  marginTop:"2rem"
+  margin:"2rem"
 }
 
 function Button() {

@@ -6,6 +6,7 @@ const Main = styled.div`
   line-height: 2rem;
 
   position: fixed;
+  z-index:1;
   top: 0;
   left: 0;
   width: 100%;
@@ -120,6 +121,7 @@ const MenuTwo = styled(MenuOne)`
 
 function Menu(props) {
   const { open } = props;
+  // console.log(open)
   // console.log(props);
 
   return (
@@ -215,7 +217,7 @@ function Menu(props) {
             </div>
           </MenuOneLg>
         </MenuBar>
-        <CloseMenu onClick={open}>
+        <CloseMenu onClick={()=>open(false)}>
           <GrClose />
         </CloseMenu>
       </Main>

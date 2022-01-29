@@ -1,5 +1,11 @@
 import React, { useState } from "react";
+
 import { CgMenu, CgClose } from "react-icons/cg";
+
+
+import {BsArrowRight} from "react-icons/bs"
+
+import {FaFacebook, FaInstagram, FaLinkedin, FaTelegram, FaTwitter} from "react-icons/fa"
 import Button from "./Button";
 import FooterCard from "./FooterCard";
 import {
@@ -29,12 +35,12 @@ import {
   ImageContainer,
   FooterMain,
   LinkText,
+  FooterPara,
+  ContainerFlex,
   
 } from "./Styled";
 import Menu from "./MenuBar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLongArrowAltRight, } from "@fortawesome/free-solid-svg-icons";
-import { faTwitter,faFacebook,faInstagram,faLinkedin,faTelegram, } from "@fortawesome/free-brands-svg-icons";
+import styles from "./home.module.css"
 
 const ListStyle = {
   color: "#424242",
@@ -44,10 +50,11 @@ const ListStyle = {
 function HomePage() {
   const [open, setOpen] = useState(false);
 
-  const SetMenu = ()=>setOpen(!open)
+  const SetMenu = (val) => open ? setOpen(val) :open;
   return (
     <>
-      <div onClick={()=>setOpen(false)}>
+      {open && <Menu open={SetMenu} />}
+      <div onClick={() => SetMenu(false)}>
         <TopBar>
           <div>
             <TopLogo
@@ -66,13 +73,15 @@ function HomePage() {
               <div>Support</div>
             </TopLinks>
 
-            <MenuBar onClick={SetMenu}>
-              <CgMenu size={21} />
+            <MenuBar onClick={() => setOpen(!open)}>
+              <CgMenu
+                style={{ alignSelf: "center", padding: "0.5rem" }}
+                size={21}
+              />
             </MenuBar>
           </TopNav>
         </TopBar>
         <BodyContainer>
-          {open && <Menu open={SetMenu} />}
           {/* Content Area No 1 broker */}
           <ContentOne>
             <ImageContainer>
@@ -108,7 +117,7 @@ function HomePage() {
                 <HeadingOne>Largest stock broker in India</HeadingOne>
               </div>
               <TextContentOne>
-                8+ million Zerodhants contribute to over 15% of all retail order
+                8+ million Zerodha clients contribute to over 15% of all retail order
                 volumes in India daily by trading and investing in:
               </TextContentOne>
               <div>
@@ -151,9 +160,13 @@ function HomePage() {
                 alt="Zerodha eco-system"
               />
             </Container>
-            <NavLink primary center>
+            <NavLink primary center alCenter>
+              <div>
               Explore our products
-              <FontAwesomeIcon icon={faLongArrowAltRight} />
+                </div>
+                <div>
+                  <BsArrowRight />
+                  </div>
             </NavLink>
           </div>
           {/* Unbbeatable pricing use content: '\e804'; for arrow in case */}
@@ -167,20 +180,24 @@ function HomePage() {
                 transparency in India. Flat fees and no hidden charges.
               </TextContentOne>
               <NavLink>
+                <div>
                 See pricing
-                <FontAwesomeIcon icon={faLongArrowAltRight} />
+                  </div>
+                  <div>
+                    <BsArrowRight />
+                    </div>
               </NavLink>
             </Container>
 
-            <Container>
-              <Box noBottom>
+            <ContainerFlex >
+              <Box >
                 <Heading noPadding>₹0</Heading>
                 Free equity delivery and direct mutual funds
               </Box>
               <Box>
                 <Heading>₹20</Heading> Intraday and F&O
               </Box>
-            </Container>
+            </ContainerFlex>
           </ResponsiveBox>
 
           <ResponsiveBox>
@@ -200,16 +217,24 @@ function HomePage() {
                   world covering everything from the basics to advanced trading.
                 </TextContentOne>
                 <NavLink>
+                  <div>
                   Varsity
-                  <FontAwesomeIcon icon={faLongArrowAltRight} />
+                    </div>
+                    <div>
+                      <BsArrowRight />
+                      </div>
                 </NavLink>
                 <TextContentOne left>
                   TradingQ&A, the most active trading and investment community
                   in India for all your market related queries.
                 </TextContentOne>
                 <NavLink>
+                  <div>
                   TradingQ&A
-                  <FontAwesomeIcon icon={faLongArrowAltRight} />
+                    </div>
+                    <div>
+                      <BsArrowRight />
+                      </div>
                 </NavLink>
               </ResponsiveBoxColumn>
             </div>
@@ -235,7 +260,7 @@ function HomePage() {
           <ResponsiveBox>
             <div>
               <div>
-                <TopLogo
+                <TopLogo noLM
                   src="	https://zerodha.com/static/images/logo.svg"
                   alt="Zerodha"
                 />
@@ -248,12 +273,12 @@ function HomePage() {
                   {" "}
                   All rights reserved.
                 </TextContentOne>
-                <div style={{ cursor: "pointer" }}>
-                  <FontAwesomeIcon icon={faTwitter} size="1x" border />
-                  <FontAwesomeIcon icon={faFacebook} size="1x" border />
-                  <FontAwesomeIcon icon={faInstagram} size="1x" border />
-                  <FontAwesomeIcon icon={faLinkedin} size="1x" border />
-                  <FontAwesomeIcon icon={faTelegram} size="1x" border />
+                <div>
+                  <FaTwitter size = {20}  className={styles.icon} />
+                  <FaFacebook size = {20} className={styles.icon} />
+                  <FaInstagram size = {20}  className={styles.icon} />
+                  <FaLinkedin size = {20} className={styles.icon} />
+                  <FaTelegram size = {20} className={styles.icon} />
                 </div>
               </div>
             </div>
@@ -297,7 +322,7 @@ function HomePage() {
             </div>
           </ResponsiveBox>
           <div>
-            <TextContentOne margin Size="0.7rem" left noHeight>
+            <FooterPara margin Size="0.6rem" left >
               Zerodha Broking Ltd.: Member of NSE​ &​ BSE – SEBI Registration
               no.: INZ000031633 CDSL: Depository services through Zerodha
               Broking Ltd. – SEBI Registration no.: IN-DP-431-2019 Commodity
@@ -309,18 +334,18 @@ function HomePage() {
               to complaints@zerodha.com, for DP related to dp@zerodha.com.
               Please ensure you carefully read the Risk Disclosure Document as
               prescribed by SEBI | ICF
-            </TextContentOne>
-            <TextContentOne margin Size="0.7rem" left noHeight>
+            </FooterPara>
+            <FooterPara >
               Procedure to file a complaint on SEBI SCORES: Register on SCORES
               portal. Mandatory details for filing complaints on SCORES: Name,
               PAN, Address, Mobile Number, E-mail ID. Benefits: Effective
               Communication, Speedy redressal of the grievances
-            </TextContentOne>
-            <TextContentOne margin Size="0.7rem" left noHeight>
+            </FooterPara>
+            <FooterPara >
               Investments in securities market are subject to market risks; read
               all the related documents carefully before investing.
-            </TextContentOne>
-            <TextContentOne margin Size="0.7rem" left noHeight>
+            </FooterPara>
+            <FooterPara >
               Attention investors: 1) Stock brokers can accept securities as
               margins from clients only by way of pledge in the depository
               system w.e.f September 01, 2020. 2) Update your e-mail and phone
@@ -328,9 +353,9 @@ function HomePage() {
               OTP directly from depository on your e-mail and/or mobile number
               to create pledge. 3) Check your securities / MF / bonds in the
               consolidated account statement issued by NSDL/CDSL every month.
-            </TextContentOne>
+            </FooterPara>
 
-            <TextContentOne margin Size="0.7rem" left noHeight>
+            <FooterPara >
               "Prevent unauthorised transactions in your account. Update your
               mobile numbers/email IDs with your stock brokers. Receive
               information of your transactions directly from Exchange on your
@@ -347,7 +372,7 @@ function HomePage() {
               have not authorized anyone to trade on behalf of others. If you
               find anyone claiming to be part of Zerodha and offering such
               services, please create a ticket here.
-            </TextContentOne>
+            </FooterPara>
           </div>
           <div>
             <FooterLinkContainer>

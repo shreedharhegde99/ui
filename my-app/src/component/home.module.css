@@ -1,0 +1,10 @@
+.icon{
+  
+  margin:1rem 0.5rem;
+  cursor: pointer;
+  
+
+}
+.icon:hover{
+  color: #387ed1
+}

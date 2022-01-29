@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
-  padding: 0rem 2.5rem;
+  padding: 0rem 2rem;
  
 `;
 
@@ -20,7 +20,7 @@ const TopBar = styled.div`
 
 const TopLogo = styled.img`
 margin-top:1rem;
-margin-left:1rem;
+margin-left: ${props=>props.noLM ? 0:"1rem"};
   height: 1rem;
   cursor:pointer;
   align-self:center;
@@ -46,6 +46,9 @@ const TopLinks = styled(TopNav)`
     flex-wrap: wrap;
     align-content: center;
     justify-content:space-around;
+  }
+  & > div{
+    cursor:pointer;
   }
 
 
@@ -107,7 +110,11 @@ const Heading = styled.div`
   justify-content: center;
   align-items: center;
   @media(min-width:800px){
-    font-size:3rem
+    font-size:3rem;
+    flex-basis:100%;
+    margin:0.5rem;
+
+
   }
   
 `;
@@ -138,6 +145,16 @@ const TextContentOne = styled(TextContent)`
   text-align: ${(props) => (props.left ? "left" : "center")};
   
 `;
+
+const FooterPara = styled.div`
+color:#424242;
+font-size:0.7rem;
+line-height:1rem;
+margin-top:1rem;
+font-weight:400;
+
+
+`
 const LinkText = styled(TextContentOne)`
   cursor: pointer;
   &:hover {
@@ -147,25 +164,35 @@ const LinkText = styled(TextContentOne)`
 `;
 
 const NavLink = styled.div`
+display:flex;
+align-content:space-around;
+justify-content:${(props) => (props.alCenter ? "center" : "start")};
 font-size:1.1rem;
   color: #3f61bf;
   &:hover {
     color: black;
   };
- margin-bottom:2rem;
+ margin:1rem 2rem;
+ margin-left:0;
  padding-right:0.5rem;
- text-align:${props=>props.center?"center":"left"};
+ text-align:${(props) => (props.center ? "center" : "left")};
+ & > div{
+   padding-right :0.5rem;
+ }
 `;
 const Box = styled.div`
   border: solid #dad1d1 1px;
   border-radius: 10px;
-  border-bottom: ${(props) => (props.noBottom ? 0 : "1px solid #dad1d1")};
+  margin-bottom:0.1rem;
   height: 150px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   color:#424242;
+  @media(min-width:800px){
+    flex-basis:100%;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -173,16 +200,35 @@ text-align:center;
 margin:2rem;
 // justify-content:center;
 // align-items:center;
-
-
-
 `
+
+const Container = styled(ButtonContainer)`
+  margin: 0.5rem;
+  @media (min-width: 800px) {
+    flex-basis: 100%;
+    margin-top:2rem;
+  }
+`;
+const ContainerFlex = styled.div`
+  margin: 1rem;
+  @media (min-width: 800px) {
+    display: flex;
+    flex-basis: 100%;
+    & > div {
+      padding:1rem;
+      border: 1px solid #dad1d1;
+    }
+    
+  }
+`;
+
+
 const StyledButton = styled.button`
   width: max-content;
   font-size: 1.5rem;
   background: #387ed1;
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   border: none;
   border-radius: 5px;
   &:hover {
@@ -216,7 +262,7 @@ const ResponsiveBox = styled.div`
   display:flex;
   justify-content:space-evenly;
   // flex:1;
-  margin:2rem 0;
+  margin:3rem 0;
 
 }
 `
@@ -224,12 +270,6 @@ const ResponsiveBoxColumn = styled(ResponsiveBox)`
 flex-direction:column;
 flex-wrap:wrap;
 
-`;
-const Container = styled(ButtonContainer)`
-  margin: 0.5rem;
-  @media (min-width: 800px) {
-    flex-basis: 100%;
-  }
 `;
   
 const ImageContainer = styled.section`
@@ -263,4 +303,6 @@ export {
   ImageContainer,
   FooterMain,
   LinkText,
+  FooterPara,
+  ContainerFlex,
 };
