@@ -103,7 +103,8 @@ const ImageStyle = styled.img`
   width: 90%;
   @media (min-width: 800px) {
     align-self: left;
-    width: 80%;
+    width: 90%;
+    // height:100%;
   
   }
 `;
@@ -203,6 +204,7 @@ const Container = styled(ButtonContainer)`
   @media (min-width: 800px) {
     flex-basis: 100%;
     margin-top:2rem;
+    padding:1rem;
   }
 `;
 const ContainerFlex = styled.div`
@@ -210,6 +212,8 @@ const ContainerFlex = styled.div`
   @media (min-width: 800px) {
     display: flex;
     flex-basis: 100%;
+    padding:0.5rem;
+    align-items:center;
     & > div {
       padding:1rem;
       border: 1px solid #dad1d1;
@@ -259,21 +263,23 @@ const ResponsiveBox = styled.div`
 @media (min-width:800px){
   display:flex;
   justify-content:space-evenly;
-  margin:3rem 1.5rem;
+  padding:3.5rem 1.5rem;
 
 }
 `
 const ResponsiveBoxColumn = styled.div`
-display:flex;
-flex-direction:column;
-
-margin:0.5rem;
-height:max-content;
+@media(min-width:800px){
+  
+  display:grid;
+  grid-template-rows : 15% 40% 40%;
+  grid-gap:0;
+}
 
 `;
   
 const ImageContainer = styled.section`
  padding:20 20px 100px 20px;
+ 
 `;
 
 

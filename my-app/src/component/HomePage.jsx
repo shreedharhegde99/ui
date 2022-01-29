@@ -210,19 +210,24 @@ function HomePage() {
               <HeadingOne size="1.5rem">
                 Free and open market education
               </HeadingOne>
-              <TextContentOne margin="1rem 0" left>
-                Varsity, the largest online stock market education book in the
-                world covering everything from the basics to advanced trading.
-              </TextContentOne>
-              <BlueLink text="Varsity" />
-              <NavLink></NavLink>
-              <TextContentOne margin="1rem 0" left>
-                TradingQ&A, the most active trading and investment community in
-                India for all your market related queries.
-              </TextContentOne>
-              <NavLink>
-                <BlueLink text="TradingQ&A" />
-              </NavLink>
+              <div>
+                <TextContentOne margin="1rem 0" left>
+                  Varsity, the largest online stock market education book in the
+                  world covering everything from the basics to advanced trading.
+                </TextContentOne>
+                <NavLink>
+                  <BlueLink text="Varsity" />
+                </NavLink>
+              </div>
+              <div>
+                <TextContentOne margin="1rem 0" left>
+                  TradingQ&A, the most active trading and investment community
+                  in India for all your market related queries.
+                </TextContentOne>
+                <NavLink>
+                  <BlueLink text="TradingQ&A" />
+                </NavLink>
+              </div>
             </ResponsiveBoxColumn>
           </ResponsiveBox>
 
