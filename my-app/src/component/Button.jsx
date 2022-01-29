@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components"
 
 const StyledButton = styled.button`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background: #387ed1;
   color: white;
   padding: 0.5rem 2rem;
@@ -16,7 +16,8 @@ const StyledButton = styled.button`
 `;
 
 const style = {
-  margin:"2rem"
+  margin: "1.5rem 1.5rem",
+  // width: "fit-content"
 }
 
 function Button() {

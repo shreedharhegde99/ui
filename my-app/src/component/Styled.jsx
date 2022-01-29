@@ -1,7 +1,8 @@
+import React, {Fragment } from "react";
 import styled from "styled-components";
 
 const BodyContainer = styled.div`
-  padding: 0rem 2rem;
+  padding: 0rem 0.5rem;
  
 `;
 
@@ -14,12 +15,14 @@ const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
+  align-items:center;
+  
   position: sticky;
   top: 0;
 `;
 
 const TopLogo = styled.img`
-margin-top:1rem;
+// margin-top:1rem;
 margin-left: ${props=>props.noLM ? 0:"1rem"};
   height: 1rem;
   cursor:pointer;
@@ -38,6 +41,8 @@ const TopNav = styled.div`
 `;
 const TopLinks = styled(TopNav)`
   flex-basis: 1;
+  font-weight:300;
+  font-size:0.9rem;
 
   display: none;
   @media (min-width: 960px) {
@@ -63,7 +68,7 @@ const TopDiv = styled.div`
 
 const MenuBar = styled.div`
 cursor:pointer;
-padding-top:1rem;
+// padding-top:1rem;
 position:relative;
 z-index:2;
 `
@@ -73,6 +78,10 @@ text-align:center;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
+@media(min-width:800px){
+  padding:0 1.5rem;
+
+}
 `
 const ContentOneImage = styled.img`
   margin-top: 1rem;
@@ -120,10 +129,10 @@ const Heading = styled.div`
 `;
 
 const HeadingOne = styled(Heading)`
-  font-size: 2rem;
+  font-size: ${props=>props.size?props.size:"2rem"};
   text-align: ${(props) => (props.center ? "center" : "left")};
   margin-left: 0;
-  padding: 0;
+  padding: ${props=>props.padding};
 `;
 
 
@@ -141,7 +150,7 @@ const TextContentOne = styled(TextContent)`
   font-size: ${(props) => props.Size || "1rem"};
   line-height: ${(props) => (props.noHeight ? "normal" : "1.5rem")};
   word-spacing: ${(props) => (props.normal ? "normal" : "0.4rem")};
-  margin: ${(props) => (props.margin ? "2rem 0" : 0)};
+  margin: ${(props) => (props.margin ? props.margin|| "2rem 0" : 0)};
   text-align: ${(props) => (props.left ? "left" : "center")};
   
 `;
@@ -157,28 +166,15 @@ font-weight:400;
 `
 const LinkText = styled(TextContentOne)`
   cursor: pointer;
+  padding:0.1rem;
   &:hover {
     color: rgba(74, 93, 237, 0.88);
-    // font-weight:500;
   }
 `;
 
 const NavLink = styled.div`
 display:flex;
-align-content:space-around;
-justify-content:${(props) => (props.alCenter ? "center" : "start")};
-font-size:1.1rem;
-  color: #3f61bf;
-  &:hover {
-    color: black;
-  };
- margin:1rem 2rem;
- margin-left:0;
- padding-right:0.5rem;
- text-align:${(props) => (props.center ? "center" : "left")};
- & > div{
-   padding-right :0.5rem;
- }
+justify-content:${props=>props.center?"center":"start"}
 `;
 const Box = styled.div`
   border: solid #dad1d1 1px;
@@ -203,7 +199,7 @@ margin:2rem;
 `
 
 const Container = styled(ButtonContainer)`
-  margin: 0.5rem;
+  margin: 0;
   @media (min-width: 800px) {
     flex-basis: 100%;
     margin-top:2rem;
@@ -225,7 +221,7 @@ const ContainerFlex = styled.div`
 
 const StyledButton = styled.button`
   width: max-content;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background: #387ed1;
   color: white;
   padding: 0.5rem 2rem;
@@ -244,6 +240,8 @@ const StyledButton = styled.button`
 const FooterMain = styled.div`
   background: #fafafb;
   padding: 1rem;
+
+  margin-top: 3.5rem;
   @media (min-width: 1100px) {
     padding: 1rem 3rem;
   }
@@ -261,20 +259,48 @@ const ResponsiveBox = styled.div`
 @media (min-width:800px){
   display:flex;
   justify-content:space-evenly;
-  // flex:1;
-  margin:3rem 0;
+  margin:3rem 1.5rem;
 
 }
 `
-const ResponsiveBoxColumn = styled(ResponsiveBox)`
+const ResponsiveBoxColumn = styled.div`
+display:flex;
 flex-direction:column;
-flex-wrap:wrap;
+
+margin:0.5rem;
+height:max-content;
 
 `;
   
 const ImageContainer = styled.section`
- padding:0 20px 120px 20px;
+ padding:20 20px 100px 20px;
 `;
+
+
+const ListContainer = styled.div`
+@media(min-width:800px){
+  display:flex;
+  justify-content:flex-start;
+}
+
+`
+const FlexContainer = styled.div`
+@media(min-width:800px){
+  display:grid;
+  grid-template-rows:auto;
+}
+
+`
+
+ const ListItem = ({ list }) => {
+   const style = { color: "#424242", lineHeight: "1.7rem" };
+  return (
+    <ul style={style}>
+      {list.map((item,i)=><li key={i}>{item}</li>)}
+    </ul>
+  )
+ 
+}
 
 
 export {
@@ -305,4 +331,7 @@ export {
   LinkText,
   FooterPara,
   ContainerFlex,
+  ListItem,
+  ListContainer,
+  FlexContainer,
 };

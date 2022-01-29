@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-
 import { CgMenu, CgClose } from "react-icons/cg";
 
-
-import {BsArrowRight} from "react-icons/bs"
-
-import {FaFacebook, FaInstagram, FaLinkedin, FaTelegram, FaTwitter} from "react-icons/fa"
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTelegram,
+  FaTwitter,
+} from "react-icons/fa";
 import Button from "./Button";
 import FooterCard from "./FooterCard";
 import {
@@ -37,20 +39,18 @@ import {
   LinkText,
   FooterPara,
   ContainerFlex,
-  
+  ListItem,
+  ListContainer,
+  FlexContainer,
 } from "./Styled";
+import { BlueLink } from "./link";
 import Menu from "./MenuBar";
-import styles from "./home.module.css"
-
-const ListStyle = {
-  color: "#424242",
-  lineHeight: "1.7rem",
-};
+import styles from "./home.module.css";
 
 function HomePage() {
   const [open, setOpen] = useState(false);
 
-  const SetMenu = (val) => open ? setOpen(val) :open;
+  const SetMenu = (val) => (open ? setOpen(val) : open);
   return (
     <>
       {open && <Menu open={SetMenu} />}
@@ -81,8 +81,8 @@ function HomePage() {
             </MenuBar>
           </TopNav>
         </TopBar>
+        {/* Content Area No 1 broker */}
         <BodyContainer>
-          {/* Content Area No 1 broker */}
           <ContentOne>
             <ImageContainer>
               <ContentOneImage
@@ -112,30 +112,36 @@ function HomePage() {
               </ImageContainer>
             </Container>
 
-            <div>
+            <FlexContainer>
               <div>
-                <HeadingOne>Largest stock broker in India</HeadingOne>
+                <HeadingOne padding="1rem 0 1rem 0 ">
+                  Largest stock broker in India
+                </HeadingOne>
               </div>
-              <TextContentOne>
-                8+ million Zerodha clients contribute to over 15% of all retail order
-                volumes in India daily by trading and investing in:
+              <TextContentOne left>
+                8+ million Zerodha clients contribute to over 15% of all retail
+                order volumes in India daily by trading and investing in:
               </TextContentOne>
-              <div>
+              <ListContainer>
                 <div>
-                  <ul style={ListStyle}>
-                    <li> Future and Options</li>
-                    <li>Commodity derivatives</li>
-                    <li>Currency derivatives</li>
-                  </ul>
+                  <ListItem
+                    list={[
+                      "Future and Options",
+                      "Commodity derivatives",
+                      "Currency derivatives",
+                    ]}
+                  />
                 </div>
                 <div>
-                  <ul style={ListStyle}>
-                    <li>Stocks & IPOs</li>
-                    <li>Direct mutual funds </li>
-                    <li>Bonds and Govt. Securities</li>
-                  </ul>
+                  <ListItem
+                    list={[
+                      "Stocks & IPOs",
+                      "Direct mutual funds",
+                      "Bonds and Govt. Securities",
+                    ]}
+                  />
                 </div>
-              </div>
+              </ListContainer>
 
               <ImageContainer>
                 <ImageStyle
@@ -143,7 +149,7 @@ function HomePage() {
                   alt="Press-logos"
                 />
               </ImageContainer>
-            </div>
+            </FlexContainer>
           </ResponsiveBox>
           {/* The zerodha universe */}
           <div>
@@ -161,12 +167,7 @@ function HomePage() {
               />
             </Container>
             <NavLink primary center alCenter>
-              <div>
-              Explore our products
-                </div>
-                <div>
-                  <BsArrowRight />
-                  </div>
+              <BlueLink text="Explore our products" />
             </NavLink>
           </div>
           {/* Unbbeatable pricing use content: '\e804'; for arrow in case */}
@@ -180,17 +181,12 @@ function HomePage() {
                 transparency in India. Flat fees and no hidden charges.
               </TextContentOne>
               <NavLink>
-                <div>
-                See pricing
-                  </div>
-                  <div>
-                    <BsArrowRight />
-                    </div>
+                <BlueLink text="See pricing" />
               </NavLink>
             </Container>
 
-            <ContainerFlex >
-              <Box >
+            <ContainerFlex>
+              <Box>
                 <Heading noPadding>₹0</Heading>
                 Free equity delivery and direct mutual funds
               </Box>
@@ -209,36 +205,27 @@ function HomePage() {
                 />
               </ImageContainer>
             </Container>
-            <div>
-              <ResponsiveBoxColumn>
-                <HeadingOne>Free and open market education</HeadingOne>
-                <TextContentOne left>
-                  Varsity, the largest online stock market education book in the
-                  world covering everything from the basics to advanced trading.
-                </TextContentOne>
-                <NavLink>
-                  <div>
-                  Varsity
-                    </div>
-                    <div>
-                      <BsArrowRight />
-                      </div>
-                </NavLink>
-                <TextContentOne left>
-                  TradingQ&A, the most active trading and investment community
-                  in India for all your market related queries.
-                </TextContentOne>
-                <NavLink>
-                  <div>
-                  TradingQ&A
-                    </div>
-                    <div>
-                      <BsArrowRight />
-                      </div>
-                </NavLink>
-              </ResponsiveBoxColumn>
-            </div>
+
+            <ResponsiveBoxColumn>
+              <HeadingOne size="1.5rem">
+                Free and open market education
+              </HeadingOne>
+              <TextContentOne margin="1rem 0" left>
+                Varsity, the largest online stock market education book in the
+                world covering everything from the basics to advanced trading.
+              </TextContentOne>
+              <BlueLink text="Varsity" />
+              <NavLink></NavLink>
+              <TextContentOne margin="1rem 0" left>
+                TradingQ&A, the most active trading and investment community in
+                India for all your market related queries.
+              </TextContentOne>
+              <NavLink>
+                <BlueLink text="TradingQ&A" />
+              </NavLink>
+            </ResponsiveBoxColumn>
           </ResponsiveBox>
+
           {/* Open Account */}
           <div>
             <div>
@@ -260,7 +247,8 @@ function HomePage() {
           <ResponsiveBox>
             <div>
               <div>
-                <TopLogo noLM
+                <TopLogo
+                  noLM
                   src="	https://zerodha.com/static/images/logo.svg"
                   alt="Zerodha"
                 />
@@ -274,11 +262,11 @@ function HomePage() {
                   All rights reserved.
                 </TextContentOne>
                 <div>
-                  <FaTwitter size = {20}  className={styles.icon} />
-                  <FaFacebook size = {20} className={styles.icon} />
-                  <FaInstagram size = {20}  className={styles.icon} />
-                  <FaLinkedin size = {20} className={styles.icon} />
-                  <FaTelegram size = {20} className={styles.icon} />
+                  <FaTwitter size={20} className={styles.icon} />
+                  <FaFacebook size={20} className={styles.icon} />
+                  <FaInstagram size={20} className={styles.icon} />
+                  <FaLinkedin size={20} className={styles.icon} />
+                  <FaTelegram size={20} className={styles.icon} />
                 </div>
               </div>
             </div>
@@ -322,7 +310,7 @@ function HomePage() {
             </div>
           </ResponsiveBox>
           <div>
-            <FooterPara margin Size="0.6rem" left >
+            <FooterPara margin Size="0.6rem" left>
               Zerodha Broking Ltd.: Member of NSE​ &​ BSE – SEBI Registration
               no.: INZ000031633 CDSL: Depository services through Zerodha
               Broking Ltd. – SEBI Registration no.: IN-DP-431-2019 Commodity
@@ -335,17 +323,17 @@ function HomePage() {
               Please ensure you carefully read the Risk Disclosure Document as
               prescribed by SEBI | ICF
             </FooterPara>
-            <FooterPara >
+            <FooterPara>
               Procedure to file a complaint on SEBI SCORES: Register on SCORES
               portal. Mandatory details for filing complaints on SCORES: Name,
               PAN, Address, Mobile Number, E-mail ID. Benefits: Effective
               Communication, Speedy redressal of the grievances
             </FooterPara>
-            <FooterPara >
+            <FooterPara>
               Investments in securities market are subject to market risks; read
               all the related documents carefully before investing.
             </FooterPara>
-            <FooterPara >
+            <FooterPara>
               Attention investors: 1) Stock brokers can accept securities as
               margins from clients only by way of pledge in the depository
               system w.e.f September 01, 2020. 2) Update your e-mail and phone
@@ -355,7 +343,7 @@ function HomePage() {
               consolidated account statement issued by NSDL/CDSL every month.
             </FooterPara>
 
-            <FooterPara >
+            <FooterPara>
               "Prevent unauthorised transactions in your account. Update your
               mobile numbers/email IDs with your stock brokers. Receive
               information of your transactions directly from Exchange on your
