@@ -1,4 +1,4 @@
-# ui
+># Zerodha Clone
 Learnings related to user interface
 
 ![code-size](https://img.shields.io/github/languages/code-size/shreedharhegde99/ui?style=plastic)
