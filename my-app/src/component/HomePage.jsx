@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CgMenu, CgClose } from "react-icons/cg";
+import { CgMenu } from "react-icons/cg";
 
 import {
   FaFacebook,
@@ -26,7 +26,7 @@ import {
   TopBar,
   TopLogo,
   StyledButton,
-  FooterContainer,
+ 
   FooterLinkContainer,
   ResponsiveBox,
   ResponsiveBoxColumn,
